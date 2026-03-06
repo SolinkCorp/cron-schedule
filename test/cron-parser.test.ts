@@ -372,10 +372,10 @@ describe('parseCronExpression', () => {
 			new TypeError('Invalid cron expression: must be of type string.'),
 		)
 		expect(() => parseCronExpression('0 0 0 0')).toThrow(
-			new Error('Invalid cron expression: expected 5 or 6 elements.'),
+			new TypeError('Invalid cron expression: expected 5 or 6 elements.'),
 		)
 		expect(() => parseCronExpression('* * * * * * *')).toThrow(
-			new Error('Invalid cron expression: expected 5 or 6 elements.'),
+			new TypeError('Invalid cron expression: expected 5 or 6 elements.'),
 		)
 		expect(() => parseCronExpression('60 * * * * *')).toThrow(
 			new Error(
