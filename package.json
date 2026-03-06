@@ -32,6 +32,7 @@
 	],
 	"type": "module",
 	"main": "./dist/cjs/index.js",
+	"packageManager": "pnpm@9.0.6+sha256.0624e30eff866cdeb363b15061bdb7fd9425b17bc1bb42c22f5f4efdea21f6b3",
 	"engines": {
 		"node": ">=18"
 	},
@@ -86,7 +87,7 @@
 		]
 	},
 	"scripts": {
-		"build": "rimraf ./dist && npm run tsc:build:esm && npm run tsc:build:cjs && ./bin/build-types.sh",
+		"build": "rimraf ./dist && pnpm run tsc:build:esm && pnpm run tsc:build:cjs && ./bin/build-types.sh",
 		"tsc:build:esm": "tsc --project ./tsconfig.json",
 		"tsc:build:cjs": "tsc --project ./tsconfig.cjs.json",
 		"tsc:check": "tsc --project ./tsconfig.json --noEmit",
@@ -94,8 +95,8 @@
 		"check": "biome check .",
 		"test": "vitest",
 		"test:run": "vitest run",
-		"test:ci": "vitest run --reporter=junit --outputFile=./test-report.xml && npm biome ci .",
-		"prepack": "npm run build"
+		"test:ci": "vitest run --reporter=junit --outputFile=./test-report.xml && pnpm biome ci .",
+		"prepack": "pnpm run build"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.1",
@@ -103,7 +104,7 @@
 		"@semantic-release/git": "10.0.1",
 		"@types/node": "22.13.5",
 		"rimraf": "5.0.5",
-		"semantic-release": "^25.0.3",
+                "semantic-release": "^25.0.3",
 		"typescript": "5.4.5",
 		"vitest": "^4.0.5"
 	}
