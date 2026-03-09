@@ -177,7 +177,7 @@ export function parseCronExpression(cronExpression: string): Cron {
 
 	const elements = cronExpression.split(' ')
 	if (elements.length < 5 || elements.length > 6) {
-		throw new Error('Invalid cron expression: expected 5 or 6 elements.')
+		throw new TypeError('Invalid cron expression: expected 5 or 6 elements.')
 	}
 
 	const rawSeconds = elements.length === 6 ? elements[0] : '0'
