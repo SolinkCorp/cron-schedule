@@ -1,0 +1,31 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+      timezone: America/Toronto
+    open-pull-requests-limit: 5
+    # every dependency is a devDependency, so all bumps are chore(deps) and don't trigger a semantic-release release
+    commit-message:
+      prefix: 'fix(deps)'
+      prefix-development: 'chore(deps)'
+    groups:
+      security:
+        applies-to: security-updates
+        patterns: ['*']
+      dev-minor-patch:
+        dependency-type: development
+        update-types: [minor, patch]
+      prod-minor-patch:
+        dependency-type: production
+        update-types: [minor, patch]
+    ignore:
+      # keep the types on 24.x to match engines (>=24)
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
+      # pilot: no major bumps; do those deliberately
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
