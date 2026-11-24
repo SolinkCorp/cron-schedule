@@ -23,7 +23,7 @@ updates:
         dependency-type: production
         update-types: [minor, patch]
     ignore:
-      # keep the types on 22.x to match engines (>=22)
+      # keep the types on 24.x to match engines (>=24)
       - dependency-name: '@types/node'
         update-types: ['version-update:semver-major']
       # pilot: no major bumps; do those deliberately
