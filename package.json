@@ -34,7 +34,7 @@
 	"main": "./dist/cjs/index.js",
 	"packageManager": "pnpm@10.33.2",
 	"engines": {
-		"node": ">=22"
+		"node": ">=24"
 	},
 	"files": [
 		"dist/**/*"
